@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>People</title>
+</head>
+<body>
+<h2>Result</h2>
+<br/><br/>
+<p><b>Person: </b><%= person %></p>
+<form action='/delete' method='POST'>
+    <span><input type='hidden' name='firstname' value='<%= firstname %>'></span>
+    <span><button type='submit'>Delete</button></span>
+</form>
+</body>
+</html>
