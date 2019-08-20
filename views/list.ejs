@@ -5,6 +5,16 @@
     <title>People</title>
 </head>
 <body>
+<h1>People</h1>
+<br/>
+<ul>
+    <% for(var i=0; i < list.length; i++) {%>
+        <li>
+            <span><b>First Name: </b><%= list[i] %></span><br />
+        </li>
+        <br/>
+    <% } %>
+</ul>
 <br/><br/>
 <a href='/add'>Add person</a>&nbsp;&nbsp;<a href='/search'>Search person</a>
 

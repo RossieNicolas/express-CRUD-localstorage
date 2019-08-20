@@ -21,7 +21,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/list', (req, res) => {
-    res.render('list.ejs', {});
+    let names = [];
+    for (let i =0; i < localStorage.length; i++){
+        names.push(localStorage.key(i));
+    }
+    res.render('list.ejs', {list: names});
 });
 
 app.get('/add', (req, res) => {
@@ -56,4 +60,16 @@ app.post('/delete', (req, res) => {
         localStorage.removeItem(firstname);
         res.redirect('/list');
     }
+});
+
+app.post('/edit', (req,res) => {
+    let firstname = req.body.firstname;
+    let otherinfo = req.body.firstname +', ' + req.body.lastname + ', ' + req.body.age + ', ' + req.body.birthday;
+    if (localStorage.getItem(firstname)!= null) {
+        localStorage.setItem(firstname, otherinfo);
+    }
+    else {
+        localStorage.setItem(firstname, otherinfo);
+    }
+    res.redirect('/list');
 });
